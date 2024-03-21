@@ -1,0 +1,21 @@
+﻿@model List<Libro>
+
+<div class="card-container" style=" display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;">
+    @foreach (Libro libro in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/@libro.Portada" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@libro.Titulo</h5>
+                <p class="card-text">@libro.Editorial</p>
+                <a class="btn btn-primary" asp-controller="Libros"
+                   asp-action="DetallesLibro"
+                   asp-route-idlibro="@libro.IdLibro">
+                    Detalles
+                </a>
+            </div>
+        </div>
+    }
+</div>

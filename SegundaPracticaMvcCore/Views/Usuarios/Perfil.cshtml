@@ -1,0 +1,7 @@
+﻿@using System.Security.Claims
+
+<h1>Bienvenido @Context.User.Identity.Name</h1>
+
+<img src="~/images/@Context.User.FindFirst("IMAGEN").Value" style="width:200px" />
+<p>Email: @Context.User.FindFirst(ClaimTypes.Email).Value</p>
+<p>Apellido: @Context.User.FindFirst(ClaimTypes.Surname).Value</p>
