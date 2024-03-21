@@ -11,7 +11,7 @@ namespace SegundaPracticaMvcCore.Models
         public int IdPedido { get; set; }
         [Column("IDFACTURA")]
         public int IdFactura { get; set; }
-        [Column("FEXHA")]
+        [Column("FECHA")]
         public DateTime Fecha { get; set; }
         [Column("IDLIBRO")]
         public int IdLibro { get; set; }

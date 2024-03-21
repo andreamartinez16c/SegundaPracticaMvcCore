@@ -64,9 +64,24 @@ namespace SegundaPracticaMvcCore.Repositories
             return await this.context.Pedidos.MaxAsync(x => x.IdFactura) + 1;
         }
 
-       public async Task CreateCompra(int idLibro, int id)
+       public async Task CreateCompra(int idLibro, int idFactura, int idUsuario, int cantidad)
         {
+            Pedido pedido = new Pedido()
+            {
+                IdPedido = await this.GetMaxIdPedidoAsync(),
+                Cantidad = cantidad,
+                IdLibro = idLibro,
+                IdUsuario = idUsuario,
+                IdFactura = idFactura,
+                Fecha = DateTime.Now
+            };
+            await this.context.AddAsync(pedido);
+            await this.context.SaveChangesAsync();
+        }
 
+        public async Task<List<VistaPedido>> GetVistaPedidosAsync()
+        {
+            return await this.context.VistaPedidos.ToListAsync();
         }
     }
 }

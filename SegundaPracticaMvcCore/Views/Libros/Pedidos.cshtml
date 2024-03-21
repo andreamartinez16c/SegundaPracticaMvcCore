@@ -1,0 +1,30 @@
+﻿@model List<VistaPedido>
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id Usuario</th>
+                <th>Nombre</th>
+                <th>Titulo</th>
+                <th>Portada</th>
+                <th>Fecha</th>
+                <th>Precio Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (VistaPedido vpedido in Model)
+            {
+                <tr>
+                    <td>@vpedido.IdUsuario</td>
+                    <td>@vpedido.Nombre @vpedido.Apellidos</td>
+                    <td>@vpedido.Titulo</td>
+                    <td><img src="~/images/@vpedido.Portada" style="width:200px; height:200px" /></td>
+                    <td>@vpedido.Fecha</td>
+                    <td>@vpedido.PrecioFinal€</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
